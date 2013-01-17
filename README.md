@@ -12,3 +12,20 @@ REST APIs out there are
 for research purposes, I am interested in testing REST APIs, and I would like to see alternative
 examples that do not fall in either of the categories above. Thus, if you know of any examples,
 please point me to them!
+
+
+Build and run RRPC
+==
+
+To build this code, run the following command:
+
+erlc -o ./ebin ./src/*.erl
+
+To run the program, first start Erlang like this:
+
+erl -pa ./ebin
+
+Then, run the following in the Erlang shell:
+
+1> application:start(rrpc).
+
