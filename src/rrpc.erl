@@ -80,14 +80,14 @@ init([]) ->
 handle_call({number, Number}, _From, State) when is_integer(Number) ->
     Reply = {ok, saved},
     {reply, Reply, [Number | State]};
-handle_call({op, Op = clear}, _From, _State) ->
+handle_call({op, clear}, _From, _State) ->
     Reply = {ok, cleared},
     {reply, Reply, []};
 handle_call({op, Op}, _From, [N1, N2 | State]) ->
     Result = ?MODULE:Op([N1, N2]),
     Reply = {ok, {result, Result}},
     {reply, Reply, [Result | State]};
-handle_call({op, Op}, _From, State) ->
+handle_call({op, _Op}, _From, State) ->
     Reply = {error, not_allowed},
     {reply, Reply, State}.
 
